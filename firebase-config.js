@@ -1,3 +1,5 @@
+// firebase-config.js
+
 const firebaseConfig = {
     apiKey: "AIzaSyCUtp75Q6HWBoVM5yt8FYXo9Ok2P0pSRxw",
     authDomain: "devcore-41f88.firebaseapp.com",
@@ -9,6 +11,10 @@ const firebaseConfig = {
     measurementId: "G-QEX2DL4E0S"
 };
 
-firebase.initializeApp(firebaseConfig);
+// ✅ Prevent double initialization
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
 const db = firebase.firestore();
 const auth = firebase.auth();
